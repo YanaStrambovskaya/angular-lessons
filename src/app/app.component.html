@@ -1,19 +1,13 @@
 <div class="container">
-  <h1>Angular components</h1>
-  <app-post-form (onAdd)="updatePosts($event)"></app-post-form>
-  <app-post
-    *ngFor="let item of posts"
-    [currentPost]="item"
-    [length]="item.text.length"
-    (onRemove)="removePost($event)"
-  >
-    <div class="f" #info>
-      <small *ngIf="item.text.length > 10; else smallBlock">This post is big</small>
-      <ng-template #smallBlock>
-        <small>This post is small</small>
-      </ng-template>
-    </div>
-  </app-post>
+  <h1>Angular Directives</h1>
+
+  <p appStyle [color]="'red'" [fontWeight]="'bold'" [fontSize]="'60px'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, tempore?</p>
+
+  <div *appIfnot="isVisible" class="wrap">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, voluptates.</p>
+  </div>
+  <button (click)="isVisible = !isVisible">Click</button>
+
 </div>
 
 
