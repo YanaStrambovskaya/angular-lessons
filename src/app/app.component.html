@@ -1,13 +1,24 @@
 <div class="container">
-  <h1>Angular Directives</h1>
+  <h1>Angular Pipes</h1>
+  <p>Wait for... {{promise | async}}</p>
+  <p>{{number | number:'1.1-1'}}</p>
+  <p>{{str | slice:1:-2}}</p>
+  <p>{{date | date: 'MMMM dd yyyy'}}</p>
 
-  <p appStyle [color]="'red'" [fontWeight]="'bold'" [fontSize]="'60px'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, tempore?</p>
+  <p>{{10 | mult}}</p>
+  <p>{{10 | mult: 2}}</p>
+  <p>{{10 | mult: 3}}</p>
+  <p>{{10 | mult: 4}}</p>
+  <p>{{10 | mult: 5}}</p>
 
-  <div *appIfnot="isVisible" class="wrap">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, voluptates.</p>
+  <button class="btn" (click)="searchTitle='title'">Title</button>
+  <button class="btn" (click)="searchTitle='text'">Text</button>
+  <button class="btn" (click)="addPost()">Add Post</button>
+  <input type="text" [(ngModel)]="search">
+  <div *ngFor="let item of post | filter:search:searchTitle" class="card">
+    <h1>{{item.title}}</h1>
+    <p>{{item.text}}</p>
   </div>
-  <button (click)="isVisible = !isVisible">Click</button>
-
 </div>
 
 
